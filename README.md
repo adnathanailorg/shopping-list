@@ -1,4 +1,5 @@
-![travis](https://travis-ci.org/adnathanailorg/shopping-list.svg?branch=master "Build status")
+[![Travis Status](https://travis-ci.org/adnathanailorg/shopping-list.svg?branch=master)](https://travis-ci.org/adnathanailorg/shopping-list)
+[![Coverage Status](https://coveralls.io/repos/github/adnathanailorg/shopping-list/badge.svg?branch=master)](https://coveralls.io/github/adnathanailorg/shopping-list?branch=master)
 # ShoppingList
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
