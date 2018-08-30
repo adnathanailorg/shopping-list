@@ -14,10 +14,16 @@ before_script:
 script:
   - ng build --prod
 
-after_success:
-  - firebase deploy --token $FIREBASE_TOKEN
+deploy:
+  provider: firebase
+  token:
+    secure: "1/BVwrl9RQmXf9cPaHkwRJCneqDYVudle0BkdjNxQMIGQ"
 
 notifications:
   email:
     on_failure: change
     on_success: change
+
+cache:
+  directories:
+    - "node_modules"
