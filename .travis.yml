@@ -27,3 +27,4 @@ notifications:
 cache:
   directories:
     - "node_modules"
+    - "functions/node_modules"
