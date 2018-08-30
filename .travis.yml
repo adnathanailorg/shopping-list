@@ -1,30 +1,24 @@
 language: node_js
 node_js:
-  - "8.11"
-
+- '8.11'
 branches:
   only:
-    - master
-
+  - master
 before_script:
-  - npm install -g firebase-tools
-  - npm install -g @angular/cli
-  - cd functions && npm install
-
+- npm install -g firebase-tools
+- npm install -g @angular/cli
+- cd functions && npm install && cd ..
 script:
-  - ng build --prod
-
+- ng build --prod
 deploy:
   provider: firebase
   token:
-    secure: "1/BVwrl9RQmXf9cPaHkwRJCneqDYVudle0BkdjNxQMIGQ"
-
+    secure: bGz0k8zStZIXRQC2SmbTSTTTnRjrNAOpKv+GGmTdB/VRYT3SNE+qaE658JyqU7YTDg2UAU+jG6OEnyV7ibWR4l9KscRrujJvztgdGGgho58sJGegQ/p3APV+euctd1E3FNXVrcyojLXChtEtq1q++lXSM+QNuPAmNfPjyV0faCo3lUIgq+brn2t6i/4bwWA7hEDdL8ZVSTqvQZzVPQM8OBlGyMTvRa7+D5vUiO3OPwU2FLxBfd1JSypqyzo69dbictfuHb9BCs604Qzc4KNbfYGTebnrDArT9IVVcn+yssW2AMODK2Frir2iDHKTXCVWxCeN4Xh+NqAF+lfB0fzoRXy4dcN1AgAVO6aKUUFmW1XGW9zZCEcRtnw47BbLT634hU1dC0cAL4ndt8Tnq0It6bY0CODsYJq1gNoyOWv9wJ7zXA/Cy45wgDuTLlSHEmILW97XyDwv9oSPsFVp7SMtbi+xeiUiBO7uFdNUSHoVjxNi9tTucFMeMHCui5OghDKcjHJL1EZs1+0afl+Q6ft03hKUq32/+YcubbRq5nNAVAQXu9JeeZ1w3nUJyjojy1j9bGRlmY25+IE/v9y8Nf9Jzqfyy5ZMgiwZt3UxahniO38Ek+9Jg+2eB0Pp7NKhk2iahcY8tXOrac27auy7p+/8cssQLhYNFXAw0Z8JvXW0Ds0=
 notifications:
   email:
     on_failure: change
     on_success: change
-
 cache:
   directories:
-    - "node_modules"
-    - "functions/node_modules"
+  - node_modules
+  - functions/node_modules
