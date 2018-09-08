@@ -26,13 +26,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ItemListComponent } from './item-list/item-list.component';
 import { DialogComponent } from './item-list/dialog.component';
-import { ItemDetailComponent } from './item-detail/item-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DialogComponent,
-    ItemDetailComponent,
     ItemListComponent,
   ],
   entryComponents: [ DialogComponent, ],
