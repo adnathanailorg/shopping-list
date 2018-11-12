@@ -33,4 +33,8 @@ export class ItemListComponent implements OnInit {
       this._itemService.addItem(result);
     });
   }
+  updateBought(item) {
+    console.log('item-list/updateBought', item);
+    this._itemService.updateBought(item);
+  }
 }

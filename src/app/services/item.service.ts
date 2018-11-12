@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Item, Tally } from '../models';
 
@@ -19,9 +20,19 @@ export class ItemService {
     this.tally = this.tallyDoc.valueChanges();
 
     this.itemsCollection = afs.collection<Item>('items');
-    this.items = this.itemsCollection.valueChanges();
+    this.items = this.itemsCollection.snapshotChanges().pipe(map(actions => {
+      return actions.map(action => {
+        const item = action.payload.doc.data() as Item;
+        item.id = action.payload.doc.id;
+        return item;
+      });
+    }));
   }
   public addItem(item: Item) {
     this.itemsCollection.add(item);
+  }
+  public updateBought(item: Item) {
+    console.log('item.service/updateBought', item);
+    this.itemsCollection.doc(item.id).update({ bought: item.bought });
   }
 }
